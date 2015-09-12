@@ -2,5 +2,5 @@ box: wercker/nodejs
 build:
   steps:
     - wercker/npm-install
-    - hgen/gulp
+    - hgen/gulp:
       tasks: test
