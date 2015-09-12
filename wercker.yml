@@ -1,6 +1,6 @@
-box: wercker/nodejs
+box: node
 build:
   steps:
-    - wercker/npm-install
+    - npm-install
     - hgen/gulp:
       tasks: test
