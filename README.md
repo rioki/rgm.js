@@ -1,5 +1,5 @@
 
-Rioki Game Math - Web Eddition
-==============================
+Rioki Game Math - Web Edition
+=============================
 
 
