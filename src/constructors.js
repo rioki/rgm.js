@@ -9,7 +9,15 @@ rgm.vec2 = function () {
         return new Float32Array([arguments[0], arguments[0]]);
       }
       else {
-        return new Float32Array(arguments[0]);
+        switch (arguments[0].length) {
+          case 2:
+            return new Float32Array(arguments[0]);        
+          case 3:
+          case 4:
+            return new Float32Array([arguments[0][0], arguments[0][1]]);        
+          default:
+            throw new Error('vec2: invalid array size');
+        }
       }
     case 2:
       return new Float32Array([arguments[0], arguments[1]]);
@@ -27,9 +35,18 @@ rgm.vec3 = function () {
       if (typeof arguments[0] === "number") {
         return new Float32Array([arguments[0], arguments[0], arguments[0]]);
       }
-      else {
-        return new Float32Array(arguments[0]);
-      }
+      else {        
+        switch (arguments[0].length) {
+          case 2:
+            return new Float32Array([arguments[0][0], arguments[0][1], 0.0]);        
+          case 3:
+            return new Float32Array(arguments[0]);        
+          case 4:
+            return new Float32Array([arguments[0][0], arguments[0][1], arguments[0][2]]);        
+          default:
+            throw new Error('vec3: invalid array size');
+        }       
+      }      
     case 3:
       return new Float32Array([arguments[0], arguments[1], arguments[2]]);
     default:
@@ -46,8 +63,17 @@ rgm.vec4 = function () {
       if (typeof arguments[0] === "number") {
         return new Float32Array([arguments[0], arguments[0], arguments[0], arguments[0]]);
       }
-      else {
-        return new Float32Array(arguments[0]);
+      else {        
+        switch (arguments[0].length) {
+          case 2:
+            return new Float32Array([arguments[0][0], arguments[0][1], 0.0, 0.0]);        
+          case 3:
+            return new Float32Array([arguments[0][0], arguments[0][1], arguments[0][2], 0.0]);        
+          case 4:
+            return new Float32Array(arguments[0]);        
+          default:
+            throw new Error('vec3: invalid array size');
+        }
       }
     case 4:
       return new Float32Array([arguments[0], arguments[1], arguments[2], arguments[3]]);
@@ -70,7 +96,16 @@ rgm.mat3 = function () {
                                           0.0,          0.0, arguments[0]]);
       }
       else {
-        return new Float32Array(arguments[0]);
+        switch (arguments[0].length) {
+          case 9:
+            return new Float32Array(arguments[0]);        
+          case 16:
+            return new Float32Array([arguments[0][0], arguments[0][1], arguments[0][ 2],
+                                     arguments[0][4], arguments[0][5], arguments[0][ 6],
+                                     arguments[0][8], arguments[0][9], arguments[0][10]]);
+          default:
+            throw new Error('mat3: invalid array size');
+        }        
       }
     case 9:
       return new Float32Array([arguments[0], arguments[1], arguments[2], 
@@ -97,7 +132,17 @@ rgm.mat4 = function () {
                                           0.0,          0.0,          0.0, arguments[0]]);
       }
       else {
-        return new Float32Array(arguments[0]);
+        switch (arguments[0].length) {
+          case 9:
+            return new Float32Array([arguments[0][0], arguments[0][1], arguments[0][2], 0.0,
+                                     arguments[0][3], arguments[0][4], arguments[0][5], 0.0,
+                                     arguments[0][6], arguments[0][7], arguments[0][8], 0.0,
+                                                 0.0,             0.0,             0.0, 1.0]);
+          case 16:
+            return new Float32Array(arguments[0]);
+          default:
+            throw new Error('mat3: invalid array size');
+        }        
       }
     case 16:
       return new Float32Array([arguments[ 0], arguments[ 1], arguments[ 2], arguments[ 3], 
