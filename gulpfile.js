@@ -11,7 +11,8 @@ var VERSION = "0.1.0";
 var srcs  = [
   "src/_init_.js",
   "src/constructors.js",
-  "src/functions.js"
+  "src/functions.js",
+  "src/transforms.js"
 ];
 
 gulp.task("library", function() {

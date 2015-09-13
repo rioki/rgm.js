@@ -33,7 +33,7 @@ rgm.vec3 = function () {
     case 3:
       return new Float32Array([arguments[0], arguments[1], arguments[2]]);
     default:
-      throw new Error('vec2: invalid number of arguments');
+      throw new Error('vec3: invalid number of arguments');
   }
 }
 
@@ -52,7 +52,7 @@ rgm.vec4 = function () {
     case 4:
       return new Float32Array([arguments[0], arguments[1], arguments[2], arguments[3]]);
     default:
-      throw new Error('vec2: invalid number of arguments');
+      throw new Error('vec4: invalid number of arguments');
   }
 }
 

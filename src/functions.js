@@ -69,7 +69,7 @@ rgm.vmult = function (a, b) {
   return r;
 }
 
-rgm.svmult = function (v, s) {
+rgm.vsmult = function (v, s) {
   var r = new Float32Array(v.length);
   for (var i = 0; i < v.length; i++) {
     r[i] = v[i] * s;
@@ -82,7 +82,7 @@ rgm.length = function (v) {
 }
 
 rgm.normalize = function (v) {
-  return rgm.svmult(v, 1.0 / rgm.length(v));
+  return rgm.vsmult(v, 1.0 / rgm.length(v));
 }
 
 rgm.mmult = function (a, b) {
@@ -106,6 +106,19 @@ rgm.mmult = function (a, b) {
   return r;
 }
 
+rgm.transpose = function(m) {    
+  var n = Math.sqrt(m.length);
+  var r = new Float32Array(m.length);
+  
+  for (var i = 0; i < n; i++) {
+    for (var j = 0; j < n; j++) {
+      r[j*n+i] = m[i*n+j];
+    }
+  }
+  
+  return r;
+}
+
 rgm.mvmult = function (m, v) {
 	var n = v.length;
 	var r = new Float32Array(n);
@@ -115,7 +128,7 @@ rgm.mvmult = function (m, v) {
 		r[i] = 0;
 		for (var j = 0; j < n; j++)
 		{
-				r[i] += m[i*n+j] * v[j];
+				r[i] += m[j*n+i] * v[j];
 		}
 	}
 	
@@ -129,7 +142,8 @@ rgm.qmult = function (a, b) {
   var vb = rgm.vec3(b[0], b[1], b[2]);
   
   var w = wa * wb - rgm.dot(va, vb);
-  var v = rgm.add(rgm.add(rgm.svmult(vb, wa), rgm.svmult(va, wb)), rgm.cross(va, vb));
+  var v = rgm.add(rgm.add(rgm.vsmult(vb, wa), rgm.vsmult(va, wb)), rgm.cross(va, vb));
 
   return rgm.quat(v[0], v[1], va[2], w);
 }
+
