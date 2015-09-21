@@ -98,4 +98,18 @@ QUnit.test("mvmult", function (assert) {
   assert.deepEqual(v, rgm.vec3(1, 4, 9));
 });
 
-// TODO qvmult
+QUnit.test("qmult", function (assert) {
+  var a = rgm.quat(1, 2, 3, 4);                   
+  var b = rgm.quat(5, 6, 7, 8);
+  var v = rgm.qmult(a, b);
+  assert.deepEqual(v, rgm.quat(24, 48, 3, -6));
+});
+
+QUnit.test("quat2mat3", function (assert) {
+  var q = rgm.qrotate(45, rgm.vec3(0, 0, 1));                   
+  var m = rgm.mat4(1);
+  m = rgm.rotate(m, 45, 0, 0, 1);
+  
+  var qm = rgm.quat2mat4(q);  
+  assert.deepEqual(qm, m);  
+});

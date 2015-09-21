@@ -131,3 +131,14 @@ rgm.scale = function(m, x, y, z) {
   
   return r;
 }
+
+rgm.qrotate = function (angle, axis) {
+  var an    = rgm.normalize(axis);
+  var sin_a = Math.sin(rgm.radians(angle/2.0));
+  var cos_a = Math.cos(rgm.radians(angle/2.0));
+  var x = an[0] * sin_a;
+  var y = an[1] * sin_a;
+  var z = an[2] * sin_a;
+  var w = cos_a;
+  return rgm.quat(x, y, z, w);
+}

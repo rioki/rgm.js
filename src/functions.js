@@ -147,3 +147,29 @@ rgm.qmult = function (a, b) {
   return rgm.quat(v[0], v[1], va[2], w);
 }
 
+rgm.quat2mat4 = function (q) {
+  var xx = q[0] * q[0];
+  var xy = q[0] * q[1];
+  var xz = q[0] * q[2];
+  var xw = q[0] * q[3];
+  var yy = q[1] * q[1];
+  var yz = q[1] * q[2];
+  var yw = q[1] * q[3];
+  var zz = q[2] * q[2];
+  var zw = q[2] * q[3];
+  
+  var mat = rgm.mat4(1);
+  mat[0]  = 1 - 2 * (yy + zz);
+  mat[4]  =     2 * (xy - zw);
+  mat[8]  =     2 * (xz + yw);
+  mat[1]  =     2 * (xy + zw);
+  mat[5]  = 1 - 2 * (xx + zz);
+  mat[9]  =     2 * (yz - xw);
+  mat[2]  =     2 * (xz - yw);
+  mat[6]  =     2 * (yz + xw);
+  mat[10] = 1 - 2 * (xx + yy);
+  mat[3]  = mat[7] = mat[11] = mat[12] = mat[13] = mat[14] = 0;
+  mat[15] = 1;
+  
+  return mat;
+}

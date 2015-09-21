@@ -37,3 +37,8 @@ QUnit.test("scale", function (assert) {
   var r = rgm.mvmult(t, rgm.vec4(1, 1, 1, 1))
   assert.deepEqual(r, rgm.vec4(2, 3, 4, 1));
 });
+
+QUnit.test("qrotate", function (assert) {
+  var q = rgm.qrotate(45, rgm.vec3(0, 0, 1));
+  assert.deepEqual(q, rgm.quat(0, 0, 0.3826834261417389, 0.9238795042037964));
+});
