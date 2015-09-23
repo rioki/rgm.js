@@ -93,7 +93,7 @@ The function add implements element wise addition.
 
 The function sub implements element wise subtraction.
     
-    rgm.sub(a)
+    rgm.neg(a)
     
 The function neg implements element wise negation. 
 
