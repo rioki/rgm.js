@@ -127,6 +127,8 @@ The normalize function returns a normalized vector.
 
 ### Matrix Function
 
+The following functions are defined for matrix types:
+
     rgm.mmult(a, b)
 
 The function mmult implements matrix multiplication. 
@@ -143,6 +145,8 @@ The function transpose transposes a matrix.
 
 Please note that a quaternion is a R4 vector and thus all vectors functions
 apply to quaternions.
+
+The following functions are defined for quaternions:
 
     rgm.qmult(a, b)
     
