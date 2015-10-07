@@ -97,6 +97,12 @@ The function sub implements element wise subtraction.
     
 The function neg implements element wise negation. 
 
+    rgm.equal(a, b, [eps])
+    
+The function equal compares object a and b element wise for equality.
+The precision of the comparision is defined by the optional argument eps. 
+If it is not given, the precision will be 1e-6.
+
 ### Vector Functions
 
 The following functions are defined for vector types:

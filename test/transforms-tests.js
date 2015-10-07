@@ -42,3 +42,9 @@ QUnit.test("qrotate", function (assert) {
   var q = rgm.qrotate(45, rgm.vec3(0, 0, 1));
   assert.deepEqual(q, rgm.quat(0, 0, 0.3826834261417389, 0.9238795042037964));
 });
+
+QUnit.test("qtransform", function (assert) {
+  var q = rgm.qrotate(5, rgm.vec3(0, 0.5, 1));
+  var v = rgm.qtransform(q, rgm.vec3(1, 0, 0));
+  assert.deepEqual(v, rgm.vec3(0.9973363280296326, 0.07795446366071701, 0.039014365524053574));  
+});

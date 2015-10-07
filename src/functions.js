@@ -147,6 +147,10 @@ rgm.qmult = function (a, b) {
   return rgm.quat(v[0], v[1], va[2], w);
 }
 
+rgm.qconjugate = function (q) {
+  return rgm.quat(-q[0], -q[1], -q[2], q[3]);
+}
+
 rgm.quat2mat4 = function (q) {
   var xx = q[0] * q[0];
   var xy = q[0] * q[1];
@@ -172,4 +176,20 @@ rgm.quat2mat4 = function (q) {
   mat[15] = 1;
   
   return mat;
+}
+
+rgm.equal = function (a, b, eps) {
+  if (a.length != b.length) {
+    return false;
+  }
+  
+  var e = (eps !== undefined) ? eps : 1e-6;
+  
+  for (var i = 0; i < a.length; i++) {
+    if (Math.abs(a[i] - b[i]) > e) {
+      return false;
+    }
+  }
+  
+  return true;
 }

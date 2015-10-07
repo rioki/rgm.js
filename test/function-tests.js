@@ -105,11 +105,11 @@ QUnit.test("qmult", function (assert) {
   assert.deepEqual(v, rgm.quat(24, 48, 3, -6));
 });
 
-QUnit.test("quat2mat3", function (assert) {
-  var q = rgm.qrotate(45, rgm.vec3(0, 0, 1));                   
+QUnit.test("quat2mat4", function (assert) {
+  var q = rgm.qrotate(90, rgm.vec3(0, 0, 1));                   
   var m = rgm.mat4(1);
-  m = rgm.rotate(m, 45, 0, 0, 1);
+  m = rgm.rotate(m, 90, 0, 0, 1);
   
   var qm = rgm.quat2mat4(q);  
-  assert.deepEqual(qm, m);  
+  assert.ok(rgm.equal(qm, m));  
 });

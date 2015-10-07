@@ -1,11 +1,11 @@
 
 
 rgm.radians = function(degrees) {
-  return degrees * Math.PI / 180;
+  return degrees * (Math.PI / 180.0);
 };
 
 rgm.degrees = function(radians) {
-  return radians * 180 / Math.PI;
+  return radians * (180.0 / Math.PI);
 }; 
 
 
@@ -141,4 +141,14 @@ rgm.qrotate = function (angle, axis) {
   var z = an[2] * sin_a;
   var w = cos_a;
   return rgm.quat(x, y, z, w);
+}
+
+rgm.qtransform = function (q, v) {
+  var qn = rgm.normalize(q)  
+  var qv = rgm.quat(v[0], v[1], v[2], 0);
+  var qc = rgm.qconjugate(qn);
+  
+  var qr = rgm.qmult(rgm.qmult(qn, qv), qc);
+  
+  return rgm.vec3(qr[0], qr[1], qr[2]);
 }
