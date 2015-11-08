@@ -230,3 +230,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Third Party Software
+--------------------
+
+### qunit
+
+rgm.js integrates [qunit](http://qunitjs.com/) for unit testing. 
+
+Files:
+
+- test/qunit-1.20.0.js
+- test/qunit-1.20.0.css
+
+Copyright:
+
+    Copyright jQuery Foundation and other contributors
+    Released under the MIT license
+    http://jquery.org/license
