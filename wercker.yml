@@ -2,5 +2,4 @@ box: node
 build:
   steps:
     - npm-install
-    - hgen/gulp:
-      tasks: test
+    - npm-test
