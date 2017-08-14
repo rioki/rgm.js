@@ -2,7 +2,7 @@
 Rioki's Game Math - Web Edition
 ===============================
 
-[![wercker status](https://app.wercker.com/status/ebe34fd193c258e0337cf2db36b07897/m/master "wercker status")](https://app.wercker.com/project/bykey/ebe34fd193c258e0337cf2db36b07897)
+[![wercker status](https://app.wercker.com/status/ebe34fd193c258e0337cf2db36b07897/s/master "wercker status")](https://app.wercker.com/project/byKey/ebe34fd193c258e0337cf2db36b07897)
 
 rgm.js is a small library written in JavaScript that implements the subset of
 linear algebra used for computer graphics and games.
